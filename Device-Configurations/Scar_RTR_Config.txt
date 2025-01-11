@@ -1,0 +1,45 @@
+config t
+hostname Scar_RTR
+!
+
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+no shut
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 172.16.2.1 255.255.255.128
+ ip helper-address 172.16.1.2
+no shut
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 172.16.2.129 255.255.255.128
+ ip helper-address 172.16.1.2
+no shut
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ ip address 192.168.10.9 255.255.255.252
+ no shutdown
+!
+interface Serial0/0/1
+ ip address 192.168.10.2 255.255.255.252
+no shut
+exit
+
+router ospf 1
+
+ network 172.16.2.128 0.0.0.127 area 0
+ network 172.16.2.0 0.0.0.127 area 0 
+ network 192.168.10.0 0.0.0.3 area 0
+ network 192.168.10.4 0.0.0.3 area 0
+ network 192.168.10.8 0.0.0.3 area 0
+!

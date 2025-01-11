@@ -1,0 +1,46 @@
+config t
+hostname Miss_RTR
+!
+
+interface f0/0
+ no ip address
+ duplex auto
+ speed auto
+no shut
+!
+interface f0/0.10
+ encapsulation dot1Q 30
+ ip address 172.16.3.1 255.255.255.128
+ ip helper-address 172.16.1.2
+no shut
+!
+interface f0/0.20
+ encapsulation dot1Q 40
+ ip address 172.16.3.129 255.255.255.128
+ ip helper-address 172.16.1.2
+no shut
+!exit
+interface f0/1
+ no ip address
+ duplex auto
+
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ ip address 192.168.10.6 255.255.255.252
+ no shutdown
+!
+interface Serial0/0/1
+ ip address 192.168.10.10 255.255.255.252
+no shut
+exit
+
+router ospf 1
+
+ network 172.16.3.128 0.0.0.127 area 0
+ network 172.16.3.0 0.0.0.127 area 0 
+ network 192.168.10.0 0.0.0.3 area 0
+ network 192.168.10.4 0.0.0.3 area 0
+ network 192.168.10.8 0.0.0.3 area 0
+!

@@ -1,0 +1,25 @@
+config t
+hostname HQ_SWT
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+no shut
+!
+interface FastEthernet0/2
+no shut
+!
+interface FastEthernet0/3
+no shut
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+no shut
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown

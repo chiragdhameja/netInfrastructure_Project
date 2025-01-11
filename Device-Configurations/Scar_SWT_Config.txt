@@ -1,0 +1,102 @@
+config t
+hostname Scar_SWT
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+no shut
+!
+interface FastEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+no shut
+!
+interface FastEthernet0/3
+ switchport access vlan 20
+ switchport mode access
+no shut
+!
+interface FastEthernet0/4
+ switchport access vlan 20
+ switchport mode access
+no shut
+!
+interface FastEthernet0/5
+shut
+!
+interface FastEthernet0/6
+shut
+!
+interface FastEthernet0/7
+shut
+!
+interface FastEthernet0/8
+shut
+!
+interface FastEthernet0/9
+shut
+!
+interface FastEthernet0/10
+shut
+!
+interface FastEthernet0/11
+shut
+!
+interface FastEthernet0/12
+shut
+!
+interface FastEthernet0/13
+shut
+!
+interface FastEthernet0/14
+shut
+!
+interface FastEthernet0/15
+shut
+!
+interface FastEthernet0/16
+shut
+!
+interface FastEthernet0/17
+shut
+!
+interface FastEthernet0/18
+shut
+!
+interface FastEthernet0/19
+shut
+!
+interface FastEthernet0/20
+shut
+!
+interface FastEthernet0/21
+shut
+!
+interface FastEthernet0/22
+shut
+!
+interface FastEthernet0/23
+shut
+!
+interface FastEthernet0/24
+shut
+!
+interface GigabitEthernet0/1
+ switchport mode trunk
+no shut
+!
+interface GigabitEthernet0/2
+shut
+!
+
+!
+interface Vlan10
+
+ no ip address
+!
+
+!
+!
